@@ -1,4 +1,4 @@
-
+MODULE 7: React II
 
 - [x] Slide 18
     - [x] Exercise 1 (React Hooks version of Module 6/ App)
