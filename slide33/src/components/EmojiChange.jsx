@@ -1,21 +1,20 @@
 import { useState, useContext } from "react"
-import { EmojiContext } from "../context/EmojiContext";
+import { EmojiContext } from "../context/EmojiContext"; 
 import Calculator from "./Calculator"
 import Clock from "./Clock"
 
 function EmojiChange() {
-  const hi = "👋";
-  const love = "🫶";
 
-  const [mood, setMood] = useState(hi)
+  const {mood, setMood, hi, love} = useContext(EmojiContext) //this way the same context value is reused across components
   const [text, setText] = useState("Hi, there!")
 
   const handleClick = () => {
-    if (hi) {
+    if (mood === hi) {
       setMood(love)
       setText("love ya!")
-    } else if (love) {
+    } else {
       setMood(hi)
+      setText("Hi, there!")
     }
   }
 
@@ -37,9 +36,7 @@ function EmojiChange() {
       <br />
       <div>
         <Calculator />
-        <EmojiContext.Provider value={{ mood, setMood }}>
-          <Clock />
-        </EmojiContext.Provider>
+        
       </div>
       <br />
     </>

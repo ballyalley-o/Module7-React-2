@@ -60,6 +60,8 @@ const SearchList = (props) => {
 
                 if (200 <= response.status && response.status < 300) {
                     setIsLoading(false)
+                    //to actually see your new entry on the screen, just add it to the list of posts
+                    setPosts(posts.concat({nickname:searchContent, name:searchContent, status:'Alive'}))
                     alert('Character added successfully')
                 } else {
                     setIsLoading(false)

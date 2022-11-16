@@ -6,11 +6,18 @@ function EmojiChange() {
   const love = "🫶";
 
   const [mood, setMood] = useState(hi);
-  const [text, setText] = useState("Hi, there!");
+  const [text, setText] = useState("Hi, there!"); //this is not really the Greeting component from Mod 6 Exercise 2, but it does still show a greeting
 
   const handleClick = () => {
-    setMood(love);
-    setText("love ya!");
+    if (mood === hi) //just so you can switch between moods
+    {
+      setMood(love);
+      setText("love ya!");
+    }
+    else{
+      setMood(hi);
+      setText("Hi, there!");      
+    }
   };
 
   return (
